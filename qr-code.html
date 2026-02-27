@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio QR Code</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; background:#0f172a; color:#e2e8f0; }
+    .card { background:#111827; padding:24px; border-radius:12px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,.35); }
+    #qrcode { margin:16px auto; width:256px; height:256px; background:#fff; padding:10px; border-radius:8px; }
+    a { color:#93c5fd; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Portfolio QR Code</h1>
+    <div id="qrcode"></div>
+    <p>Scans to:</p>
+    <a id="portfolioLink" href="#" target="_blank" rel="noopener"></a>
+  </div>
+
+  <script>
+    // Replace with your live portfolio URL if different:
+    const portfolioUrl = "https://arockiroad-glitch.github.io/Portfolio/";
+
+    document.getElementById("portfolioLink").href = portfolioUrl;
+    document.getElementById("portfolioLink").textContent = portfolioUrl;
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: portfolioUrl,
+      width: 256,
+      height: 256,
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+</html>
