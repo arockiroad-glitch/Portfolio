@@ -31,13 +31,35 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 const qrMount = document.getElementById('portfolio-qrcode');
-if (qrMount && typeof QRCode !== 'undefined') {
-  new QRCode(qrMount, {
-    text: 'https://github.com/arockiroad-glitch/Portfolio',
-    width: 180,
-    height: 180,
-    correctLevel: QRCode.CorrectLevel.H
-  });
+const portfolioUrl = 'https://github.com/arockiroad-glitch/Portfolio';
+
+function renderQrFallback(element, value) {
+  const encodedValue = encodeURIComponent(value);
+  const image = document.createElement('img');
+  image.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodedValue}`;
+  image.alt = 'Portfolio QR code';
+  image.width = 180;
+  image.height = 180;
+  image.loading = 'lazy';
+  element.replaceChildren(image);
+}
+
+if (qrMount) {
+  try {
+    if (typeof QRCode !== 'undefined') {
+      qrMount.replaceChildren();
+      new QRCode(qrMount, {
+        text: portfolioUrl,
+        width: 180,
+        height: 180,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } else {
+      renderQrFallback(qrMount, portfolioUrl);
+    }
+  } catch (error) {
+    renderQrFallback(qrMount, portfolioUrl);
+  }
 }
 
 const panel = document.getElementById('chatPanel');
