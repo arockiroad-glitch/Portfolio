@@ -152,8 +152,8 @@
       <h3>Scan My Portfolio</h3>
       <p>Open directly on your phone.</p>
       <div id="portfolio-qrcode" aria-label="Portfolio QR code"></div>
-      <a href="https://arockiroad-glitch.github.io/Portfolio/" target="_blank" rel="noopener">
-        https://arockiroad-glitch.github.io/Portfolio/
+      <a href="https://github.com/arockiroad-glitch/Portfolio" target="_blank" rel="noopener">
+        https://github.com/arockiroad-glitch/Portfolio
       </a>
     </article>
   </div>
@@ -230,7 +230,7 @@
   const qrMount = document.getElementById('portfolio-qrcode');
   if (qrMount && typeof QRCode !== 'undefined') {
     new QRCode(qrMount, {
-      text: 'https://arockiroad-glitch.github.io/Portfolio/',
+      text: 'https://github.com/arockiroad-glitch/Portfolio',
       width: 180,
       height: 180,
       correctLevel: QRCode.CorrectLevel.H
