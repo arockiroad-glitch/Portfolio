@@ -139,16 +139,29 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <div class="card reveal">
-        <p>I'm currently growing my portfolio and open to internships, mentorship, and collaborative lab opportunities in networking and infrastructure.</p>
-        <a class="btn" href="mailto:hello@example.com">Let's Connect</a>
-      </div>
-    </section>
+<section class="section" id="contact">
+  <h2>Contact</h2>
+
+  <div class="grid two contact-grid">
+    <article class="card reveal contact-info-card">
+      <p>I'm currently growing my portfolio and open to internships, mentorship, and collaborative lab opportunities in networking and infrastructure.</p>
+      <a class="btn" href="mailto:arockiroad@gmail.com">Let's Connect</a>
+    </article>
+
+    <article class="card reveal contact-qr-card">
+      <h3>Scan My Portfolio</h3>
+      <p>Open directly on your phone.</p>
+      <div id="portfolio-qrcode" aria-label="Portfolio QR code"></div>
+      <a href="https://arockiroad-glitch.github.io/Portfolio/" target="_blank" rel="noopener">
+        https://arockiroad-glitch.github.io/Portfolio/
+      </a>
+    </article>
+  </div>
+</section>
   </main>
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 
 <!-- ...existing code... -->
@@ -213,6 +226,16 @@
   const msgs = document.getElementById('chatMessages');
   const input = document.getElementById('chatInput');
   const send = document.getElementById('chatSend');
+
+  const qrMount = document.getElementById('portfolio-qrcode');
+  if (qrMount && typeof QRCode !== 'undefined') {
+    new QRCode(qrMount, {
+      text: 'https://arockiroad-glitch.github.io/Portfolio/',
+      width: 180,
+      height: 180,
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  }
 
   const faq = [
     {
