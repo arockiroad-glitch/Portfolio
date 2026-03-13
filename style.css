@@ -193,7 +193,17 @@ h2 {
   padding: 8px;
   background: #ffffff;
   border-radius: 10px;
-  margin: 8px 0 12px;
+  margin: 8px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#portfolio-qrcode canvas,
+#portfolio-qrcode img {
+  display: block;
+  width: 180px;
+  height: 180px;
 }
 
 .contact-qr-card a {
