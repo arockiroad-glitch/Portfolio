@@ -160,7 +160,7 @@
 </section>
   </main>
 
-<button class="cb-fab" id="chatFab" aria-label="Open chatbot" onclick="document.getElementById('chatPanel')?.classList.toggle('open')">💬</button>
+<button class="cb-fab" id="chatFab" aria-label="Open chatbot" onclick="var p=document.getElementById('chatPanel'); if (p) { p.classList.toggle('open'); }">💬</button>
 
 <div class="cb-panel" id="chatPanel" role="dialog" aria-label="Portfolio assistant">
   <div class="cb-head">Portfolio Assistant</div>

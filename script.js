@@ -1,6 +1,11 @@
 function initSite() {
   const root = document.documentElement;
-  const storedTheme = localStorage.getItem('theme');
+  let storedTheme = null;
+  try {
+    storedTheme = localStorage.getItem('theme');
+  } catch (error) {
+    storedTheme = null;
+  }
 
   if (storedTheme === 'light') {
     root.classList.add('light');
@@ -10,7 +15,11 @@ function initSite() {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      try {
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      } catch (error) {
+        // ignore storage write failures
+      }
     });
   }
 
