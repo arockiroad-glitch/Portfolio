@@ -235,6 +235,21 @@ h2 {
   }
 }
 
+.cb-shell {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+.cb-shell > summary {
+  list-style: none;
+}
+
+.cb-shell > summary::-webkit-details-marker {
+  display: none;
+}
+
 .cb-fab {
   position: fixed;
   right: 20px;
@@ -248,7 +263,7 @@ h2 {
   background: #2563eb;
   color: #fff;
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
-  z-index: 9999;
+  z-index: 10000;
 }
 
 .cb-panel {
@@ -267,7 +282,7 @@ h2 {
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
 
-.cb-panel.open {
+.cb-shell[open] .cb-panel {
   display: block;
 }
 

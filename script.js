@@ -77,12 +77,11 @@ function initSite() {
   }
 
   const panel = document.getElementById('chatPanel');
-  const fab = document.getElementById('chatFab');
   const msgs = document.getElementById('chatMessages');
   const input = document.getElementById('chatInput');
   const send = document.getElementById('chatSend');
 
-  if (panel && fab && msgs && input && send) {
+  if (panel && msgs && input && send) {
     const faq = [
       {
         keys: ['skill', 'skills', 'tech stack', 'technology', 'tools'],
@@ -128,12 +127,9 @@ function initSite() {
       setTimeout(() => addMsg(getReply(trimmed), 'bot'), 250);
     }
 
-    fab.addEventListener('click', () => {
-      panel.classList.toggle('open');
-      if (panel.classList.contains('open') && !msgs.children.length) {
-        addMsg('Hi! I’m your portfolio assistant. Ask me about skills, experience, or projects.');
-      }
-    });
+    if (!msgs.children.length) {
+      addMsg('Hi! I’m your portfolio assistant. Ask me about skills, experience, or projects.');
+    }
 
     send.addEventListener('click', () => {
       ask(input.value);
