@@ -313,24 +313,27 @@ h2 {
 }
 
 .cb-msg {
+  display: inline-block;
+  align-self: flex-start;
   padding: 8px 10px;
   border-radius: 10px;
   line-height: 1.35;
   font-size: 14px;
-  width: fit-content;
+  width: auto;
+  max-width: 90%;
 }
 
 .cb-msg.user {
   background: #2563eb;
   color: #fff;
-  justify-self: end;
+  align-self: flex-end;
   max-width: 85%;
 }
 
 .cb-msg.bot {
   background: #374151;
   color: #f9fafb;
-  justify-self: start;
+  align-self: flex-start;
   max-width: 90%;
 }
 
